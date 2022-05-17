@@ -9,7 +9,12 @@ class Catagory extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
+        'name'
 
         ];
+        public function products()
+        {
+            return $this->hasmany(product::class);
+        }
+
 }

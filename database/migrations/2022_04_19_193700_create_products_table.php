@@ -20,7 +20,11 @@ return new class extends Migration
             $table->string('unit');
             $table->string('price');
             $table->string('quantity');
-
+            $table->unsignedBigInteger('Catagory_id')->foreign('Catagory_id')
+                  ->references('id')
+                  ->on('Catagories')
+                  ->onDelete('Cascade');
+            
         });
     }
 
@@ -29,7 +33,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down()
+   public function down()
     {
         Schema::dropIfExists('products');
     }
